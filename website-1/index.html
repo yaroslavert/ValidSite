@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>Document</title>
+</head>
+<body ng-controller="appCtrl">
+
+	<!-- <div class="wrapper">
+		<div class="container">
+		<div class="form">
+		<div class="zagolovok">
+			<h3>Регістрація нового пользоватілля</h3>
+		</div>
+		<div class="container-form">
+		<form novalidate ng-controller="appCtrl" name="form">
+		<div class="pole">
+		<label for="login" >Введіть Логін</label>
+		<input type="text" id="login" name="login" placeholder="Admin" autofocus ng-model="Admin.name" required ng-pattern="regex" maxlength='15' mixlength="5" >
+		<span ng-show="form.login.$dirty && form.login.$invalid">
+			<p>asdasdasd</p>
+		</span>
+		<div class="clearFix"></div>
+		</div>
+		<br/>
+		<div class="pole">
+		<label for="Password">Введіть Пароль</label>
+		<input type="password" id="Password">
+		<div class="clearFix"></div>
+		</div>
+		<br/>
+		<div class="pole">
+		<label for="Password1">Повторіть Пароль</label>
+		<input type="password" id="Password1">
+		<div class="clearFix"></div>
+		</div>
+		<br/>
+		<div class="pole">
+		<label for="email">Email</label>
+		<input type="email" id="email" name="email" placeholder="E-MAIL" ng-model="user.email" required >
+		<div class="clearFix"></div>
+		</div>
+		<br/>
+		<div class="pole">
+		<label for="fone">Телефон</label>
+		<input type="password" id="fone">
+		<div class="clearFix"></div>
+		</div>
+		<br/>
+		<div class="pole-sumbit">
+		<label for="Sumbit"></label>
+		<input type="submit" class="btn red" value="Готово" id="Sumbit">
+		<div class="clearFix"></div>
+		</div>
+		</form>
+         </div>
+		</div>
+		</div>
+	</div> -->
+	<div class="wrapper">
+		<div class="container">
+			<form name="form" novalidate>
+				<div class="bloc">
+					<label>Логін</label>
+					<label ng-show="form.login.$dirty && form.login.$valid " class="pic Ok"></label>
+					<label ng-show="form.login.$dirty && form.login.$error.required || form.login.$dirty && form.login.$error.minlength" class="pic notOk"></label>
+					<input type="text" name="login" ng-model="user.login" ng-pattern="regex1" required maxlength="12" minlength="5" >
+					<span ng-show="form.login.$dirty && form.login.$error.required">Поле немає бути пустим</span>
+					<span ng-show="form.login.$dirty && form.login.$error.minlength">Мініум 5 символів</span>
+					<span ng-show="form.login.$dirty && !form.login.$error.minlength && form.login.$invalid 
+					&& !form.login.$error.required ">Логін має містити тільки букви</span>
+				</div>
+				<div class="bloc">
+					<label>Пароль</label>
+					<label ng-show="form.Password.$dirty && form.Password.$valid " class="pic1 Ok1"></label>
+					<label ng-show="form.Password.$dirty && form.Password.$error.required ||form.Password.$dirty && form.Password.$error.minlength ||form.Password.$dirty &&  form.Password.$invalid" class="pic1 notOk1"></label>
+					<input type="Password" name="Password" ng-model="user.password" ng-pattern="regex" required maxlength="12" minlength="5" >
+					<span ng-show="form.Password.$dirty && form.Password.$error.required">Поле немає бути пустим</span>
+					<span ng-show="form.Password.$dirty && form.Password.$error.minlength">Мініум 5 символів</span>
+				</div>
+				<div class="bloc">
+					<label>Повторіть  Пароль</label>
+					<label ng-show="form.rebutpassword.$dirty && form.rebutpassword.$valid && func()" class="pic2 Ok2"></label>
+					<label ng-show="form.rebutpassword.$dirty && form.rebutpassword.$error.required || form.rebutpassword.$dirty && form.rebutpassword.$error.minlength ||form.rebutpassword.$dirty &&  form.rebutpassword.$invalid|| form.rebutpassword.$dirty && func()===false" class="pic2 notOk2"></label>
+					<input type="Password" name="rebutpassword" ng-model="user.rebutpassword" ng-pattern="regex2" required maxlength="12" minlength="5" >
+					<span ng-show="form.rebutpassword.$dirty && form.rebutpassword.$error.required">Поле немає бути пустим</span>
+					<span ng-show="form.rebutpassword.$dirty && form.rebutpassword.$error.minlength">Мініум 5 символів</span>
+					<span ng-show="form.rebutpassword.$dirty && !form.rebutpassword.$error.minlength && form.rebutpassword.$valid && !func() ">Паролі не совпадають</span>
+				</div>
+				<div class="bloc" >
+					<label>Email</label>
+					<label ng-show="form.email.$dirty && form.email.$valid" class="pic2 Ok2"></label>
+					<label ng-show="form.email.$dirty && form.email.$error.required || form.email.$dirty && form.email.$error.minlength ||form.email.$dirty &&  form.email.$invalid" class="pic2 notOk2"></label>
+					<input type="email" name="email" ng-model="user.email"  required maxlength="23" minlength="18" >
+					<span ng-show="form.email.$dirty && form.email.$error.required">Поле немає бути пустим</span>
+					<span ng-show="form.email.$dirty && form.email.$error.minlength">Мініум 18 символів</span>
+				</div>
+				<div class="bloc" >
+					<label>Виберіть країну</label>
+					<select name="mySelect" id="mySelect"
+					ng-options="el.Contru for el in json track by el.value"
+					ng-model="sel" ng-change="func1(form.email.$error.maxlength)" >
+					</select>
+                    <label>Мобільний телефон</label>
+                    <label ng-show="form.fone.$dirty && form.fone.$valid" class="pic3 Ok3"></label>
+					<input type="text" name="fone" ng-model="phone" required ng-keydown="removeTagOnBackspace($event)" ng-pattern="regex4" >
+				</div>
+				<span ng-show="form.fone.$dirty && form.fone.$error.minlength">Мініум {{sel.value.length}} символів</span>
+				<span>{{form.fone.$valid}}</span>
+			</form>
+		</div>
+		
+	</div>
+
+	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+	<script type="text/javascript" src="js/Module/Module.js"></script>
+	<script type="text/javascript" src="js/Controller/Controller.js"></script>
+</body>
+</html>
