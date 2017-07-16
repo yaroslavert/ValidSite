@@ -1,0 +1,112 @@
+/*-------------------------------- seting------------------------------------- */
+*{
+	box-sizing:border-box;
+	padding:0;
+	margin:0;
+}
+body{
+	font-family:arial;
+}
+.clearFix{
+	clear:both;
+}
+.clearRigth{
+	clear:right;
+}
+.clearLeft{
+	clear:left;
+}
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+/*-------------------------------- seting--------------------------------------*/
+/*-------------------------------- container--------------------------------------*/
+.container{
+  padding-top:100px;
+  height:auto;
+  width: 960px;
+  margin:0 auto;
+}
+label{
+  margin-bottom: 5px;
+    font-weight: bold;
+    display:block;
+    position:relative;
+}
+input{
+    display: block;
+    position:relative;
+     width:100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 20px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.pic,.pic1,.pic2,.pic3{
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: -18px;
+    height: 16px;
+    width: 16px;
+    background: url('sprite.png');
+}
+.bloc{
+  width:27%;
+  position:relative;
+}
+.bloc:not(:first-child){
+  margin-top:20px;
+}
+.Ok,.Ok1,.Ok2,.Ok3{
+   background-position-x: 32px;
+}
+.notOk,.notOk1,.notOk2{
+  background-position-x: 16px;
+}
+/*-------------------------------- container--------------------------------------*/
+
+/*---------------------------------Valid-----------------------------------------*/
+input.ng-valid.ng-dirty,input,select {
+      background-color: #dff0d8;
+}
+input.ng-invalid:not(.ng-dirty) {
+      background-color: #dff0d8;
+}
+input.ng-invalid.ng-dirty{
+      background-color: #f2dede;
+}
+span{
+  color: red;
+    font-family: arial;
+    font-size: 15px;
+}
+select{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 34px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #555;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+/*---------------------------------Valid-----------------------------------------*/
+input{
+   -webkit-user-select: none;
+   user-select: none;
+}
