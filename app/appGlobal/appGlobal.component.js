@@ -14,11 +14,18 @@ angular.module('appGlobal')
                }
                this.removeTagOnBackspace=(e)=>{
                     if(e.keyCode === 8){
-                        if((this.selectContry.value.length <= this.defaultValueCountry.length) || (e.target.selectionStart < this.defaultValueCountry.length)){ 
+                        if((this.selectContry.value.length <= this.defaultValueCountry.length)){
                             e.preventDefault();
+                            return;
+                        } else if(this.selectContry.value.length > this.defaultValueCountry.length) {
+                            if (e.target.selectionStart === this.defaultValueCountry.length && e.target.selectionEnd === this.defaultValueCountry.length) {
+                                e.preventDefault();
+                            } else if (e.target.selectionStart < this.defaultValueCountry.length){
+                                e.preventDefault();
+                            }    
                         }
                     }
-                     else if (e.keyCode === 37 || e.keyCode === 39) {
+                    else if (e.keyCode === 37 || e.keyCode === 39) {
                     }
                     else {
                         if(e.target.selectionStart < this.defaultValueCountry.length){
