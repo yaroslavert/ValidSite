@@ -1,20 +1,19 @@
-angular.module('testGlobal')
-       .component('testGlobal',{
-           templateUrl: "./app/test/test.template.html",
-           require:{
-               model: "ngModel"
-           },
-           controller: function(){
-                this.$onInit = ()=>{
-                    this.value = 'qwe';
-                    this.model.$render = ()=>{
-                        this.value = this.model.$viewValue;
-                    }
-                } 
-           }
-       }) 
+class testGlobalController{
+    constructor(){
+        this.$onInit = ()=>{
+            this.value = 'qwe';
+            this.model.$render = ()=>{
+                this.value = this.model.$viewValue;
+            }
+        }    
+    }
+}
 
-
-    //    require: {
-                // model: "ngModel"
-        //    },
+export const testGlobal = {
+    template: require('./test.template.html'),
+    controller: testGlobalController,
+    require:{
+        model: "ngModel"
+    },
+    bindings: {}
+}

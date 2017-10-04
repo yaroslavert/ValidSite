@@ -1,1 +1,4 @@
-angular.module('testGlobal',[]);
+import {testGlobal} from './test.component';
+
+angular.module('testGlobal',[])
+    .component('testGlobal', testGlobal);

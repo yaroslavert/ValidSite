@@ -43,29 +43,9 @@
                 </select>
                 <label>Мобільний телефон</label>
                 <label ng-show="form.fone.$dirty && form.fone.$valid" class="pic3 Ok3"></label>
-				<!--<input type="text" name="fone" ng-model="$ctrl.selectContry.value" required ng-keydown="$ctrl.removeTagOnBackspace($event)" onselectstart="return false" onmousedown="return false">-->
 				<input type="text" name="fone" ng-model="$ctrl.selectContry.value" required ng-keydown="$ctrl.removeTagOnBackspace($event)">
 			</div>
         </form>
         <test-global ng-model="$ctrl.test"></test-global>
     </div>
-</div>
-<!--<div class="wrapper">
-		<div class="container">
-			<form name="form" novalidate>
-				<div class="bloc" >
-					<label>Виберіть країну</label>
-					<select name="mySelect" id="mySelect"
-					ng-options="el.Contru for el in json track by el.value"
-					ng-model="sel" ng-change="func1(form.email.$error.maxlength)" >
-					</select>
-                    <label>Мобільний телефон</label>
-                    <label ng-show="form.fone.$dirty && form.fone.$valid" class="pic3 Ok3"></label>
-					<input type="text" name="fone" ng-model="phone" required ng-keydown="removeTagOnBackspace($event)" ng-pattern="regex4" >
-				</div>
-				<span ng-show="form.fone.$dirty && form.fone.$error.minlength">Мініум {{sel.value.length}} символів</span>
-				<span>{{form.fone.$valid}}</span>
-			</form>
-		</div>
-		
-	</div>-->
+</div> 
